@@ -1,37 +1,81 @@
 public class Person {
-    private String name;
-    private int age;
+   private String name;
+   private int age;
+   Animal animal;
+   Car car;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+   public Person(String name, int age) {
+       this.name = name;
+       this.age = age;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+   }
 
-    public void setId(int age) {
-        this.age = age;
-    }
+   public void setName(String name) {
+       this.name = name;
+   }
 
-    public String getName() {
-        return name;
-    }
+   public void setAge(int age) {
+       this.age = age;
+   }
 
-    public int getAge() {
-        return age;
-    }
+   public String getName() {
+       return name;
+   }
 
-    public void animal() {
-        System.out.println("I have a Cat");
+   public int getAge() {
+       return age;
+   }
 
-    }
+   public void animal() {
+       System.out.println("I have a Cat");
 
-    public void car() {
-        System.out.println("I have a car");
-    }
-}
+   }
+
+   public void car() {
+       System.out.println("I have a car");
+   }
+
+       public static void main(String[] args) {
+
+           Person p1= new Person("My name is Munna",22);
+
+           System.out.println(("Name: "+p1.getName()));
+           System.out.println("Age=" +p1.getAge());
+           p1.animal();
+
+           Cat cat1 = new Cat();
+
+
+           cat1.play();
+           cat1.eat();
+
+           p1.car();
+
+           Engine eng = new Engine(30.4);
+           DashBoard db= new DashBoard(4.0);
+           Volvo v=new Volvo(2000000,"2022", "DHA7653",eng,db);
+           v.drive();
+           v.stop();
+           v.changeFuel();
+           v.checkBattery();
+           v.model="XC90";
+           v.company="Volvo";
+
+       }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 public abstract class Animal {
 
@@ -51,6 +95,8 @@ public abstract class Animal {
 
     public abstract void eat();
 }
+
+
 
 
 public class Cat extends Animal implements Pet {
@@ -84,6 +130,8 @@ public class Cat extends Animal implements Pet {
     }
 }
 
+
+
 public interface Pet {
 
     public void setName(String name);
@@ -91,6 +139,46 @@ public interface Pet {
     public String getName();
 
     public void play();
+}
+
+
+
+
+
+
+public class Engine {
+    public double capacity;
+    public Engine(double capacity)
+    {
+        this.capacity=capacity;
+    }
+}
+
+
+
+public class DashBoard {
+    public double size;
+
+    public DashBoard(double size) {
+        this.size = size;
+    }
+}
+
+
+
+public class Car {
+    public String model;
+    public String company;
+    public void Car(){
+    }
+    public void drive() {
+        System.out.println("Driving");
+    }
+    public void stop()
+    {
+        System.out.println("Stopping");
+    }
+
 }
 
 public class Volvo extends Car{
@@ -117,68 +205,7 @@ public class Volvo extends Car{
     }
 
 }
-public class Engine {
-    public double capacity;
-    public Engine(double capacity)
-    {
-        this.capacity=capacity;
-    }
-}
-
-public class DashBoard {
-    public double size;
-
-    public DashBoard(double size) {
-        this.size = size;
-    }
-}
-public class Car {
-    public String model;
-    public String company;
-    public void Car(){
-    }
-    public void drive() {
-        System.out.println("Driving");
-    }
-    public void stop()
-    {
-        System.out.println("Stopping");
-    }
-
-
-}
-public class Main {
-    public static void main(String[] args) {
-
-        Person p1= new Person("My name is Munna",18);
-
-
-        System.out.println(("Name: "+p1.getName()));
-        System.out.println("Age=" +p1.getAge());
-        p1.animal();
-
-
-        Cat cat1 = new Cat();
-        Cat cat2 = new Cat("Billu");
-
-
-        cat1.play();
-        cat1.eat();
-
-        p1.car();
-
-                Engine eng = new Engine(34.7);
-                DashBoard db= new DashBoard(5.0);
-                Volvo v=new Volvo(700,"2022", "DHA34567",eng,db);
-                v.drive();
-                v.stop();
-                v.changeFuel();
-                v.checkBattery();
-                v.model="SUV. XC40";
-                v.company="Volvo";
-
-            }
-        }
 
 
 
+		
